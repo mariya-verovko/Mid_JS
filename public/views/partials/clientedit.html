@@ -1,0 +1,31 @@
+<form class="orderForm" name="editClientForm">
+  <div class="clientFormPanel" id="customerForm">
+	<h3 class="panelName">Заказчик</h3>
+	<div class="closeDiv">
+      <span class="closeSpan" ng-click="close()"> </span>
+    </div>
+	  <div class="dataRow">
+	    <label>Email</label>
+		<input name="email" type="email" ng-model="client.email" ng-pattern="regex.email">
+		<span class="errorSpan" ng-show="!editClientForm.email.$valid">Формат some@mail.com </span>
+	  </div>
+	  <div class="dataRow">
+	    <label>Имя</label>
+		<input name="name" type="text" ng-model="client.name" ng-pattern="regex.name" ng-minlength="3" ng-maxlength="12">
+        <span class="errorSpan" ng-show="!editClientForm.name.$valid">Введите имя</span>		
+	  </div>
+	  <div class="dataRow">
+	    <label>Фамилия</label>
+		<input name="surname" type="text" ng-model="client.surname" ng-pattern="regex.surname" ng-minlength="2" ng-maxlength="15">
+		<span class="errorSpan" ng-show="!editClientForm.surname.$valid">Введите фамилию</span>	
+	  </div>
+      <div class="dataRow">
+	    <label>Телефон</label>
+		<input name="phone" ng-model="client.phone" ng-pattern="regex.phone">
+		<span class="errorSpan" ng-show="!editClientForm.phone.$valid">Формат 38XXXXXXXXXX </span>
+	  </div>
+  </div>
+  <div class="orderFormButtonPanel">
+    <button class="orderSaveButton" ng-click="updateClient()">Update</button>
+  </div>
+</form>

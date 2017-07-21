@@ -1,0 +1,70 @@
+<h2 class="orderHeader">Order {{partId}} from {{currentDate}}</h2>
+<form class="orderForm" name="newOrderForm">
+  <div class="orderFormPanel" id="customerForm">
+	<h3 class="panelName">Customer</h3>
+	<div class="closeDiv">
+      <span class="closeSpan" ng-click="close()"> </span>
+    </div>
+	  <div class="dataRow">
+	    <label>Email</label>
+		<input name="email" type="email" ng-model="client.email" ng-pattern="regex.email">
+		<span class="errorSpan" ng-show="!newOrderForm.email.$valid">Введите настоящий email </span>
+	  </div>
+	  <div class="errorEmailDataRow">
+	    <label class="alignLabel"></label>
+	    <label>Получить данные клиента по email</label>
+		<input type="checkbox" ng-model="clientExists" ng-click="getExistingClient()">
+		<span class="errorSpan" ng-show="clientObtained">Нет клиента с таким email</span>
+	  </div>	  
+	  <div class="dataRow">
+	    <label>Имя</label>
+		<input name="name" type="text" ng-model="client.name" ng-pattern="regex.name" ng-minlength="3" ng-maxlength="12">
+		<span class="errorSpan" ng-show="!newOrderForm.name.$valid">Введите имя (от 3 до 12 символов)</span>		
+	  </div>
+	  <div class="dataRow">
+	    <label>Фамилия</label>
+		<input name="surname" type="text" ng-model="client.surname" ng-pattern="regex.surname" ng-minlength="2" ng-maxlength="15">
+		<span class="errorSpan" ng-show="!newOrderForm.surname.$valid">Введите фамилию (от 2 до 15 символов)</span>	
+	  </div>
+      <div class="dataRow">
+	    <label>Телефон</label>
+		<input name="phone"  ng-model="client.phone" ng-pattern="regex.phone">
+		<span class="errorSpan" ng-show="!newOrderForm.phone.$valid">Формат 38XXXXXXXXXX </span>
+	  </div>
+  </div>
+  <div class="orderFormPanel" id="orderForm"> 
+	<h3 class="panelName">Order</h3>
+	  <div class="dataRow" id="positionDiv">
+	    <label>Позиция</label>
+		<input name="position" ng-model="order.positions[0]" ng-pattern="regex.position" ng-minlength="4" ng-maxlength="15">
+	  </div>
+	  <div class="spanRow">
+        <span class="addNewPositionSpan" ng-click = "addPosition()">+ Добавить новую позицию</span>		  
+	  </div>
+	  <div class="dataRow">
+	    <label>Тип заказа</label> 
+		<select ng-model="order.orderType" ng-change="generateId(order.orderType)" required>
+		   <option value="">Выберите тип заказа</option> 
+		   <option ng-repeat="option in orderTypes" value="{{option.type}}">{{option.type}}</option>
+		</select>
+	  </div>
+	  <div class="dataRow">
+	    <label>Поставщик</label>
+		<select ng-model="order.provider" ng-options="option.name for option in providers" required>
+		   <option value="">Выберите поставщика</option>
+		</select>
+	  </div>
+	  <div class="dataRow">
+	    <label>ID заказа</label> <input value="{{order.orderId}}" ng-model="order.orderId" disabled>
+	  </div>
+	  <div class="dataRow">
+	    <label>Дата выполнения заказа</label> <input type="date" placeholder="yyyy-MM-dd" min="{{currentDate}}" max="{{canceledDate}}" ng-model="order.closedDate" required> 
+	  </div>
+	  <div class="dataRow">
+	    <label>Комментарий</label> <textarea ng-model="order.comment" ng-pattern="regex.comment"></textarea>
+	  </div>
+  </div>
+  <div class="orderFormButtonPanel">
+    <button class="orderSaveButton" ng-click="saveOrder()">Save</button>
+  </div>
+</form>

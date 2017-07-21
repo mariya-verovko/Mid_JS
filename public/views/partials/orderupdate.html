@@ -1,0 +1,51 @@
+<form class="orderForm" name="editOrderForm">
+  <div class="orderFormPanel"> 
+	<h3 class="panelName">Order</h3>
+	<div class="closeDiv">
+     <span class="closeSpan" ng-click="close()"> </span>
+    </div>
+	  <div class="dataRow">
+	    <label>ID заказа</label> <input value="{{order.ordeId}}" ng-model="order.orderId" disabled>
+	  </div>
+	  <div class="dataRow">
+	    <label>Клиент</label>
+		<input value="{{client}}" disabled>
+        <span class="editSpan" ng-click="editClient(order.clientId)"></span>		
+	  </div>
+	  <div class="dataRow" ng-repeat="position in order.positions track by $index">
+	    <label ng-show="!$index">Позиция</label>
+	    <label ng-show="$index"></label>
+		<input ng-model="order.positions[$index]" value="{{position}}" ng-pattern="regex.position" ng-minlength="4" ng-maxlength="15">
+	  </div>
+	  <div class="dataRow" id="additionalDiv">
+	  </div>
+	  <div class="spanRow">
+        <span class="addNewPositionSpan" ng-click="addPosition()">+ Добавить новую позицию</span>		  
+	  </div>
+	  <div class="dataRow">
+	    <label>Тип заказа</label> 
+		<input ng-model="order.orderType" value="{{order.orderType}}" disabled>	
+	  </div>
+	  <div class="dataRow">
+	    <label>Поставщик</label>
+		<select ng-model="order.provider" ng-options="option.name for option in providers" required>
+		   <option value="">{{order.provider.name}}</option>
+		</select>
+	  </div>
+	  <div class="dataRow">
+	    <label>Дата выполнения заказа</label> <input type="date" placeholder="yyyy-MM-dd" min="{{currentDate}}" max="{{canceledDate}}" ng-model="previousCanceledDate" ng-value="convertDate(previousCanceledDate)" required> 
+	  </div>
+	  <div class="dataRow">
+	   <label>Статус</label> 
+	   <select ng-model="order.status" ng-options="option for option in statuses" required>
+		   <option value="">{{order.status}}</option>
+	   </select>
+      </div>
+	  <div class="dataRow">
+	    <label>Комментарий</label> <textarea ng-model="order.comment" ng-pattern="regex.comment">{{order.comment}}</textarea>
+	  </div>
+  </div>
+  <div class="orderFormButtonPanel">
+    <button class="orderSaveButton" ng-click="updateOrder()">Update</button>
+  </div>
+<form>

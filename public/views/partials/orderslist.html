@@ -1,0 +1,116 @@
+<form class="filterSection" name="filterForm">
+  <h2 class="filteringHeader" >Выберите параметры фильтрации</h2>
+  <div class="filterOption">
+    <label>Дата создания
+      <input type="checkbox" ng-model="parameter.createDate" ng-change="clearFilter('createDate')">
+    </label>
+      <input class="filterOptionInput" ng-show="parameter.createDate" type="text" ng-model="search.createDate">	
+  </div>
+  <div class="filterOption">
+    <label>Дата выполнения
+      <input type="checkbox" ng-model="parameter.closedDate" ng-change="clearFilter('closedDate')">
+    </label>
+      <input class="filterOptionInput" ng-show="parameter.closedDate" type="text" ng-model="search.closedDate">
+  </div>
+  <div class="filterOption">
+    <label>Тип заказа
+      <input type="checkbox" ng-model="parameter.orderType" ng-change="clearFilter('orderType')">
+    </label>
+    <input class="filterOptionInput" ng-show="parameter.orderType" type="text" ng-model="search.orderType">	
+  </div>
+  <div class="filterOption">
+    <label >Поставщик 
+      <input type="checkbox" ng-model="parameter.provider.name" ng-change="clearFilter('provider', 'name')">
+    </label>	
+	<input class="filterOptionInput" ng-show="parameter.provider.name" type="text" ng-model="search.provider.name">
+  </div>
+  <div class="filterOption">
+    <label>Статус
+      <input type="checkbox" ng-model="parameter.status" ng-change="clearFilter('status')">
+    </label>
+	  <input class="filterOptionInput" ng-show="parameter.status" type="text" ng-model="search.status">
+  </div>
+</form>
+<table class="ordersListTable">
+  <thead> 
+    <tr>
+	  <th colspan="9" class="ordersTableHeader">Список заказов</th>
+	</tr>
+	<tr class="ordersTableColsNames">
+	  <th class="startColumn">
+	  	  <p class="columnNames">Дата создания</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','createDate')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','createDate')"></span>
+		  </div>
+	  </th>
+	  <th>
+	      <p class="columnNames">Кол-во позиций</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','positions.length')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','positions.length')"></span>
+		  </div>
+	  </th>
+	  <th>
+	  	  <p class="columnNames">ID заказа</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','orderId')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','orderId')"></span>
+          </div>			
+	  </th>
+	  <th>
+	  	  <p class="columnNames">Тип заказа</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','orderType')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','orderType')"></span>
+		  </div>			
+	  </th>
+	  <th>
+	  	  <p class="columnNames">Заказчик</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','clientId')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','clientId')"></span>
+		  </div>			
+	  </th>
+	  <th>
+	  	  <p class="columnNames">Поставщик</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','provider')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','provider')"></span>
+          </div>			
+	  </th>
+	  <th>
+	  	  <p class="columnNames">Дата выполнения</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','closedDate')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','closedDate')"></span>
+          </div>			
+	  </th>
+	  <th>
+	  	  <p class="columnNames">Статус</p>
+		  <div class="sortIconsDiv">
+		    <span class="sortUpSpan" ng-click="sort('up','status')"></span>
+		    <span class="sortDownSpan" ng-click="sort('down','status')"></span>
+          </div>			
+	  </th>
+	  <th></th>
+	</tr>
+  </thead>
+  <tbody  ng-repeat="order in orders | filter: search  | orderBy: sortOption" class="ordersTableData">
+    <tr>
+	  <td class="startColumn">{{convertDate(order.createDate)}}</td>
+	  <td>{{order.positions.length}}</td>
+	  <td>{{order.orderId}}</td>
+	  <td>{{order.orderType}}</td>
+	  <td>{{getClient(order.clientId)}}</td>
+	  <td>{{order.provider.name}}</td>
+	  <td>{{convertDate(order.closedDate)}}</td>
+	  <td ng-class="order.status.toLowerCase()">{{order.status}}</td>
+	  <td class="buttonsColumn">
+	    <span class="editSpan" ng-show="isEditable(order.closedDate)" ng-click="edit($index)"></span>
+        <span class="detailSpan" ng-show="!isEditable(order.closedDate)" ng-click="detail($index)"> </span>
+	  </td>
+	</tr>
+  </tbody>  
+</table>
+

@@ -1,0 +1,43 @@
+<section class="orderForm" id="orderDetailedData">
+<h3 class="panelName">Информация о заказе</h3>
+<div class="closeDiv">
+  <span class="closeSpan" ng-click="close()"> </span>
+</div>
+  <div class="dataRow">
+	<label>ID заказа</label> 
+	<input value="{{selectedOrder.orderId}}" disabled>
+  </div>
+  <div class="dataRow">
+    <label>Клиент</label>
+	<input name="client" type="text" value="{{selectedOrder.clientId}}" disabled>
+  </div>
+  <div class="dataRow" id="positionDiv" ng-repeat="position in selectedOrder.positions track by $index">
+	<label ng-show="!$index">Позиция</label>
+	<label ng-show="$index"></label>
+	<input value="{{position}}" disabled>			
+  </div>
+  <div class="dataRow">
+	 <label>Тип заказа</label>
+	 <input  type="text" value="{{selectedOrder.orderType}}" disabled>
+  </div>
+  <div class="dataRow">
+	 <label>Поставщик</label>
+	 <input  type="text" value="{{selectedOrder.provider.name}}" disabled>
+  </div>
+  <div class="dataRow">
+	  <label>Дата создания заказа</label>
+	  <input value="{{convertDate(selectedOrder.createDate)}}" disabled>		
+  </div>
+    <div class="dataRow">
+	  <label>Дата выполнения заказа</label> 
+	  <input value="{{convertDate(selectedOrder.closedDate)}}" disabled>		
+  </div>
+  <div class="dataRow">
+	   <label>Статус</label>
+	   <input value="{{selectedOrder.status}}" disabled>	  
+  </div>
+  <div class="dataRow">
+	  <label>Комментарий</label> 
+	  <textarea disabled>{{selectedOrder.comment}}</textarea>	   
+  </div>
+</section>

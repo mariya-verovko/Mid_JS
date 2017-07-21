@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head> 
+    <meta charset="utf-8">
+    <title>Test task</title> 
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body ng-app="ordersControlApp" ng-cloak>
+    <nav id="tabs">
+	  <ul class="nav nav-pills">
+	  <li class="navigation-tab"><a href="#/">Main</a></li><!--
+	  --><li class="navigation-tab"><a href="#/orders-list">Orders</a></li><!--
+      --><li class="navigation-tab"><a href="#/new-order">Create order</a></li>
+	  </ul> 	  
+	</nav>
+	  <section class="main-section" ng-view></section>
+
+	  <script src="lib/angular/angular.js"></script>
+	  <script src="lib/angular-resource/angular-resource.js"></script>
+	  <script src="lib/angular-route/angular-route.js"></script>
+	  
+	  <script src="lib/jquery/dist/jquery.min.js"></script> 
+	  <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script> 
+	  
+      <script src="js/app.js"></script>
+	  <script src="js/router.js"></script>
+	  
+	  <script src="js/services/ordersService.js"></script>
+	  <script src="js/services/orderService.js"></script>
+	  <script src="js/services/clientService.js"></script>
+	  <script src="js/services/providersService.js"></script>
+	  
+	  <script src="js/controllers/startController.js"></script>
+	  <script src="js/controllers/ordersController.js"></script>
+	  <script src="js/controllers/orderController.js"></script>
+	  <script src="js/controllers/orderDetailsController.js"></script>
+	  <script src="js/controllers/orderUpdateController.js"></script>
+	  <script src="js/controllers/clientUpdateController.js"></script>
+	  
+	</body>
+</html>

@@ -1,0 +1,407 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+  =================================
+			User styles
+  =================================
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.main-section{
+	background: #F0F0F0;
+	display: inline-block;
+	margin: 5px;
+	margin-top: 0;
+	min-height: 90vh;
+	min-width: 90%;
+	border: 1px solid grey;
+	border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;	
+}
+
+/*
+  =================================
+			Navigation tab
+  =================================
+*/
+#tabs{	
+	padding: 5px;
+	padding-bottom: 0;
+}
+
+.navigation-tab{
+	background: #0072BC;
+	display: inline-block;
+	width: 20%;
+	font: bold 14px Arial;
+	border: 1px solid grey;
+	border-bottom: none;
+	border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+}
+
+.navigation-tab a{
+   color: white;
+}
+
+/*
+  =================================
+		Start Page
+  =================================
+*/
+.start-section{
+	width: 33%;
+	margin: 0 33%;
+	padding-top: 15%;
+	text-align: center;
+}
+
+.welcome-message{
+	margin-bottom: 20px;	
+	font: bold 12px Arial;		
+}
+
+/*
+  =================================
+			Filtering section
+  =================================
+*/
+
+.filterSection{
+    padding: 20px;
+	text-align: center;
+	font: 14px Arial;
+}
+
+.filteringHeader{
+	padding-bottom: 10px;
+	font: bold 16px Arial;	
+}
+
+.filterOption{
+	display: inline-block;
+	width: 18%
+}
+
+.filterOptionDiv{
+	height:5vh;
+}
+
+.filterOptionInput{
+    display: block;
+	width: 100%;
+}
+
+/*
+  =================================
+			Orders table
+  =================================
+*/
+
+.ordersListTable {
+	margin: auto;
+	max-width: 95%;
+    overflow: hidden;	
+	text-align: left;	
+	font: 14px Arial;
+	border: 2px solid #0072BC;
+	border-collapse: separate;
+    border-spacing: 0;
+	border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+}
+
+
+.ordersTableHeader{
+	background: #0072BC;
+	padding: 10px;
+	color: white;
+	font-weight: bold;	
+}
+
+.ordersTableColsNames th{	
+	padding: 10px;
+	font-weight: bold;
+	border-left: 1px solid grey;
+}
+
+.columnNames{
+	display:inline-block;
+}
+
+.sortIconsDiv{
+	display:inline-block;
+	text-align: right;
+}
+
+.ordersTableColsNames .startColumn{
+	border-left: none;
+}
+
+.ordersTableData td{
+	padding: 10px;
+	border-top: 1px solid grey;
+	border-left: 1px solid grey;
+}
+
+.ordersTableData .startColumn{
+	border-left: none;
+}
+
+.buttonsColumn {
+	text-align: center;
+}
+
+/*
+   Classes for different statuses
+*/
+
+.failed, .expired, .done, .confirm, .new {
+	text-align: center;
+	color: grey;
+	font-weight: bold;
+}
+  .failed{
+	  background: red;	
+  }
+
+  .expired{
+	  background: yellow;
+  }
+
+  .done{
+	  background: green;
+  }
+  
+  .confirm{
+	  background: blue;
+  }
+  
+  .new{
+  }
+
+/*
+  =================================
+			Order Forms
+  =================================
+*/
+.orderForm{
+	margin: 20px;
+	font: 14px Arial;	
+	max-height: 95%;
+	border: 1px solid grey;
+	border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+}
+.orderFormPanel{
+	padding: 10px;
+	padding-right: 0;
+	border-bottom: 1px solid grey;
+}
+
+.clientFormPanel{
+	padding: 10px;
+}
+
+.dataRow, .errorEmailDataRow{
+	padding: 5px 40px ;	
+}
+
+
+.panelName{
+	display: inline-block;
+	width: 90%;
+	margin: 0;
+	padding: 10px 40px;
+	font: bold 16px Arial;
+}
+
+.orderHeader{
+	padding: 20px 0 0 40px;
+	margin: 0;
+	font: bold 16px Arial;	
+}
+
+.dataRow label, input, textarea, select{
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.errorEmailDataRow label, input, textarea, select{
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.dataRow label {
+	width: 20%;
+}
+
+.alignLabel {
+	width: 20%;
+}
+
+.errorEmailDataRow label {
+	max-width: 35%;
+}
+
+.errorSpan{
+	width: 30%;
+	padding-left:10px;
+}
+.spanRow{
+	padding-left:40px;
+}
+
+.addNewPositionSpan {
+	padding-left: 20%;
+	color: blue;
+}
+.additionInput{
+	margin: 5px 0;
+}
+
+.dataRow input, textarea, select{
+	width: 40%;
+}
+
+.closeDiv{
+	display: inline-block;
+	width: 8%;
+	text-align: right;
+}
+
+#additionalDiv{
+	padding-top: 0;
+}
+
+/*
+  =================================
+			Icons
+  =================================
+*/
+
+.editSpan, .detailSpan, .closeSpan, .sortUpSpan,.sortDownSpan {
+	display: inline-block;
+    height: 15px;
+    width: 15px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;	
+}
+.editSpan {
+    background-image: url('/images/pencil.png');
+}
+
+.detailSpan {
+    background-image: url("/images/details.png");
+}
+
+.closeSpan{
+    background-image: url("/images/close.png");
+}
+
+.sortUpSpan{
+	background-image: url("/images/up_arrow.png");
+
+}
+
+.sortDownSpan{
+	background-image: url("/images/down_arrow.png");
+}
+
+
+/*
+  =================================
+			Buttons
+  =================================
+*/
+
+.start-button{
+	background:#0072BC;
+	border: none;
+	font: bold 16px Arial;
+	color: white;
+	width: 70%;
+	padding: 20px 0;
+	border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+}
+
+.start-button:hover,.orderSaveButton:hover{
+	background:  blue;
+}
+
+.orderSaveButton{
+	background: #0072BC;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	color: white;
+	font: bold 14px Arial;
+	border: none;
+	border-radius: 0 0 5px 5px;
+      -moz-border-radius: 0 0 5px 5px;
+      -webkit-border-radius: 0 0 5px 5px;
+}
+
+
